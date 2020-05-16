@@ -10,6 +10,20 @@ let currentHour = d.getHours();
 
 //  Run a function as soon as the page loads
 jQuery(document).ready(function () {
+  // Assign variable to save buttons
+  var saveEventBtn = document.querySelectorAll(".saveBtn");
+
+  for (let row = 0; row < saveEventBtn.length; row++) {
+    saveEventBtn[row].addEventListener("click", saveEvent);
+  }
+
+  function saveEvent() {
+    // Save data to localstorage
+    for (var time = 1; time < textareaEl.length; time++) {
+      localStorage.setItem("storedEvent" + time, $("#timeEvent" + time).val());
+    }
+  }
+
   //  check current time against each time block value
   for (let i = 0; i < textareaEl.length; i++) {
     let timeBlock = textareaEl[i].getAttribute("value");
@@ -18,17 +32,15 @@ jQuery(document).ready(function () {
     // Apply appropriate class based on text area value compared to current time
     if (currentHour > timeBlock) {
       $(timeRow).addClass("past");
-      console.log("it's later");
+      $("#timeEvent" + i).val(localStorage.getItem("storedEvent" + i));
     } else if (currentHour == timeBlock) {
-      console.log("it's that time");
       $(timeRow).addClass("present");
+      $("#timeEvent" + i).val(localStorage.getItem("storedEvent" + i));
     } else {
       $(timeRow).addClass("future");
-      console.log("it's earlier");
+      $("#timeEvent" + i).val(localStorage.getItem("storedEvent" + i));
     }
   }
 });
 
-// Save button for each row that commits input text to local storage (on click event)
-// Local storage is displayed in the text area of corresponding time block
 // make text area read only for .past
