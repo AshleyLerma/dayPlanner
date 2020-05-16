@@ -13,15 +13,16 @@ jQuery(document).ready(function () {
   //  check current time against each time block
   for (let i = 0; i < timeBlockHour.length; i++) {
     timeBlock = timeBlockHour[i];
+
+    // how do you target a text are by value matching i ??
+    timeRow = $("text area with value i");
+
     if (currentHour > timeBlock) {
-      $("").addClass("past");
-      //  apply .past to textarea with value i
+      $(timeRow).addClass("past");
     } else if ((currentHour = timeBlock)) {
-      // apply .present to textarea with value i
-      $("").addClass("present");
+      $(timeRow).addClass("present");
     } else if (currentHour < timeBlock) {
-      // apply .future to textarea with value i
-      $("").addClass("future");
+      $(timeRow).addClass("future");
     }
   }
 });
