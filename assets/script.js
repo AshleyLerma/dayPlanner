@@ -2,7 +2,7 @@
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY, h:mm a"));
 
 // Variables
-var textareaEl = document.body.querySelectorAll("textarea");
+let textareaEl = document.body.querySelectorAll("textarea");
 
 // Gets current hours our of 24
 var d = new Date();
@@ -12,13 +12,13 @@ let currentHour = d.getHours();
 jQuery(document).ready(function () {
   // Assign variable to save buttons
   var saveEventBtn = document.querySelectorAll(".saveBtn");
-
+  // :oop through save buttons adding an on click to each
   for (let row = 0; row < saveEventBtn.length; row++) {
     saveEventBtn[row].addEventListener("click", saveEvent);
   }
-
+  // Save function
   function saveEvent() {
-    // Save data to localstorage
+    // Save data to localstorage with key corresponding to the text area
     for (var time = 1; time < textareaEl.length; time++) {
       localStorage.setItem("storedEvent" + time, $("#timeEvent" + time).val());
     }
@@ -30,6 +30,7 @@ jQuery(document).ready(function () {
     let timeRow = textareaEl[i];
 
     // Apply appropriate class based on text area value compared to current time
+    // Pull any saved events from local storage and add them to the time block
     if (currentHour > timeBlock) {
       $(timeRow).addClass("past");
       $("#timeEvent" + i).val(localStorage.getItem("storedEvent" + i));
