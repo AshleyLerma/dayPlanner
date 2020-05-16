@@ -21,7 +21,7 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-/* ???? Where does this need to be applied */
+/* Textarea formatting */
 .description {
   white-space: pre-wrap;
 }
@@ -62,7 +62,7 @@ textarea {
   color: black;
 }
 
-/* Col 3/Save button Formatting */
+/* Col 3 save button Formatting */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
