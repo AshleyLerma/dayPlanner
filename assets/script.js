@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
   // Save function
   function saveEvent() {
     // Save data to localstorage with key corresponding to the text area
-    for (var time = 1; time < textareaEl.length; time++) {
+    for (var time = 0; time < textareaEl.length; time++) {
       localStorage.setItem("storedEvent" + time, $("#timeEvent" + time).val());
     }
   }
