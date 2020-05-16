@@ -1,5 +1,5 @@
 // Displays the current date and time
-$("#currentDay").text(moment().format("dddd, MMMM Do YYYY, h:mm a"));
+$("#currentDay").text(moment().format("dddd, MMMM Do"));
 
 // Variables
 let textareaEl = document.body.querySelectorAll("textarea");
