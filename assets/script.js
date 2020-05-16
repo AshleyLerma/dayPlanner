@@ -1,28 +1,30 @@
 // Displays the current date and time
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY, h:mm a"));
 
+// Variables
+var textareaEl = document.body.querySelectorAll("textarea");
+
 // Gets current hours our of 24
 var d = new Date();
 let currentHour = d.getHours();
 
-//  Run a function as soon as the page loads - jQuery(document).ready(function(){ }
+//  Run a function as soon as the page loads
 jQuery(document).ready(function () {
-  //   time block values to check against text area values
-  let timeBlockHour = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+  //  check current time against each time block value
+  for (let i = 0; i < textareaEl.length; i++) {
+    let timeBlock = textareaEl[i].getAttribute("value");
+    let timeRow = textareaEl[i];
 
-  //  check current time against each time block
-  for (let i = 0; i < timeBlockHour.length; i++) {
-    timeBlock = timeBlockHour[i];
-
-    // how do you target a text are by value matching i ??
-    timeRow = $("text area with value i");
-
+    // Apply appropriate class based on text area value compared to current time
     if (currentHour > timeBlock) {
       $(timeRow).addClass("past");
-    } else if ((currentHour = timeBlock)) {
+      console.log("it's later");
+    } else if (currentHour == timeBlock) {
+      console.log("it's that time");
       $(timeRow).addClass("present");
-    } else if (currentHour < timeBlock) {
+    } else {
       $(timeRow).addClass("future");
+      console.log("it's earlier");
     }
   }
 });
