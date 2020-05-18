@@ -71,8 +71,8 @@ textarea {
   color: white;
 }
 
-/* For the save icon - research how to apply */
-.saveBtn i:hover {
-  font-size: 20px;
+/* For the save icon */
+.saveBtn svg:hover {
+  font-size: 19px;
   transition: all 0.3s ease-in-out;
 }
