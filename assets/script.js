@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
 
   //  check current time against each time block value
   for (let i = 0; i < textareaEl.length; i++) {
-    let timeBlock = textareaEl[i].getAttribute("value");
+    let timeBlock = textareaEl[i].getAttribute("data-value");
     let timeRow = textareaEl[i];
 
     // Apply appropriate class based on text area value compared to current time
