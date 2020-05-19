@@ -1,6 +1,6 @@
 # dayPlanner
 
-![picture of planner](assets/dayPlanPic.png)
+![picture of planner](assets/DayPlanShot.png)
 
 Try it here: https://ashleylerma.github.io/dayPlanner/
 
