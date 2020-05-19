@@ -6,20 +6,15 @@ let textareaEl = document.body.querySelectorAll("textarea");
 // Gets current hours out of 24
 let currentHour = parseInt(moment().format("H"));
 
-//  Run a function as soon as the page loads
+// Run as soon as the page loads
 jQuery(document).ready(function () {
   // Assign variable to save buttons
   var saveEventBtn = document.querySelectorAll(".saveBtn");
   // Loop through save buttons adding an on click to each
   for (let row = 0; row < saveEventBtn.length; row++) {
     $(saveEventBtn[row]).click(function () {
-      // When clicked save data to localstorage with key corresponding to the text area
-      for (let time = 0; time < textareaEl.length; time++) {
-        localStorage.setItem(
-          "storedEvent" + time,
-          $("#timeEvent" + time).val()
-        );
-      }
+      // When clicked save data to localstorage with key corresponding to the specific text area
+      localStorage.setItem("storedEvent" + row, $("#timeEvent" + row).val());
     });
   }
   //  check current time against each time block data-value
