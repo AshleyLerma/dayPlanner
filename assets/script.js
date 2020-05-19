@@ -12,19 +12,19 @@ jQuery(document).ready(function () {
   var saveEventBtn = document.querySelectorAll(".saveBtn");
   // Loop through save buttons adding an on click to each
   for (let row = 0; row < saveEventBtn.length; row++) {
-    saveEventBtn[row].addEventListener("click", saveEvent);
+    $(saveEventBtn[row]).click(function () {
+      // When clicked save data to localstorage with key corresponding to the text area
+      for (let time = 0; time < textareaEl.length; time++) {
+        localStorage.setItem(
+          "storedEvent" + time,
+          $("#timeEvent" + time).val()
+        );
+      }
+    });
   }
-  // Save function
-  function saveEvent() {
-    // Save data to localstorage with key corresponding to the text area
-    for (var time = 0; time < textareaEl.length; time++) {
-      localStorage.setItem("storedEvent" + time, $("#timeEvent" + time).val());
-    }
-  }
-
-  //  check current time against each time block value
+  //  check current time against each time block data-value
   for (let i = 0; i < textareaEl.length; i++) {
-    let timeBlock = parseInt(textareaEl[i].getAttribute("data-value"));
+    let timeBlock = parseInt($(textareaEl[i]).attr("data-value"));
     let timeRow = textareaEl[i];
 
     // Apply appropriate class based on text area value compared to current time
