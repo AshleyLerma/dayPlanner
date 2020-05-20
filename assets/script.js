@@ -1,13 +1,12 @@
-// Displays the current date and time
-$("#currentDay").text(moment().format("dddd, MMMM Do"));
-
-// Variables
-let textareaEl = document.body.querySelectorAll("textarea");
-// Gets current hours out of 24
-let currentHour = parseInt(moment().format("H"));
-
 // Run as soon as the page loads
 jQuery(document).ready(function () {
+  // Displays the current date and time
+  $("#currentDay").text(moment().format("dddd, MMMM Do"));
+
+  // Variables
+  let textareaEl = document.body.querySelectorAll("textarea");
+  // Gets current hours out of 24
+  let currentHour = parseInt(moment().format("H"));
   // Assign variable to save buttons
   var saveEventBtn = document.querySelectorAll(".saveBtn");
   // Loop through save buttons adding an on click to each
